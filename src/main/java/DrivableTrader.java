@@ -15,6 +15,7 @@ import java.util.List;
 
 public class DrivableTrader<T> extends Trader{
 
+
     /**
      * Construct a Trader, giving them the given inventory,
      * wishlist, and money.
@@ -36,7 +37,7 @@ public class DrivableTrader<T> extends Trader{
     }
 
 
-    @Override
+
     public int getSellingPrice(Drivable item){
         if(item instanceof Tradable){
             return(((Tradable) item).getPrice() + item.getMaxSpeed());

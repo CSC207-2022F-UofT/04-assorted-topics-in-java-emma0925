@@ -29,7 +29,7 @@ class DrivableMap {
      */
     public boolean addDrivable(String ID, Drivable item){
         if(drivable_map.containsKey(ID) != true){
-            addDrivable(ID, item);
+            this.drivable_map.put(ID, item);
             return true;
         }
         return false;
@@ -46,8 +46,7 @@ class DrivableMap {
      */
     public boolean hasFasterThan(int speed){
         for (Drivable i : drivable_map.values()){
-            int g = i.getMaxSpeed();
-            if(g <= speed){
+            if(i.getMaxSpeed() >= speed){
                 return true;
             }
         }
@@ -66,12 +65,14 @@ class DrivableMap {
     public List<Tradable> getTradable(){
         ArrayList<Tradable> a = new ArrayList<Tradable>();
         for (Drivable i : drivable_map.values()){
-            a.add((Tradable) a);
+            if (i instanceof Tradable) {
+                a.add((Tradable) i);
+            }
         }
         return a;
     }
 
 
 
-    
+
 }
